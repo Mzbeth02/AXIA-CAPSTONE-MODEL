@@ -130,31 +130,9 @@ city = st.selectbox("City", filtered_city)
 filtered_locality = location_df[location_df['Restaurant ID'] == id]['Locality'].unique()
 locality = st.selectbox("Locality", filtered_locality)
 
-#id = st.number_input('Restaurant ID', 0)
-#city = st.text_input('City')
-#city = st.selectbox("City", ['Makati City','Mandaluyong City','Pasay City','Pasig City','Quezon City','San Juan City',
-#'Santa Rosa','Tagaytay City','Taguig City','Rio de Janeiro','Albany','Armidale','Athens','Augusta','Balingup',
-#'Beechworth','Boise','Cedar Rapids/Iowa City','Chatham-Kent','Clatskanie','Cochrane','Columbus','Consort',
-#'Dalton','Davenport','Des Moines','Dicky Beach','Dubuque','East Ballina','Fernley','Flaxton','Forrest',
-#'Gainesville','Hepburn Springs','Huskisson','Inverloch','Lakes Entrance','Lakeview','Lincoln','Lorn',
-#'Macedon','Macon','Mayfield','Mc Millan','Middleton Beach','Monroe','Montville','Ojo Caliente','Orlando',
-#'Palm Cove','Paynesville','Penola','Pensacola','Phillip Island','Pocatello','Potrero','Princeton',
-#'Rest of Hawaii','Savannah','Singapore','Sioux City','Tampa Bay','Tanunda','Trentham East','Valdosta',
-#'Vernonia','Victor Harbor','Vineland Station','Waterloo','Weirton','Winchester Bay','Yorkton','Abu Dhabi',
-#'Dubai','Sharjah','Agra','Ahmedabad','Allahabad','Amritsar','Aurangabad','Bangalore','Bhopal','Bhubaneshwar',
-#'Chandigarh','Chennai','Coimbatore','Dehradun','Faridabad','Ghaziabad','Goa','Gurgaon','Guwahati',
-#'Hyderabad','Indore','Jaipur','Kanpur','Kochi','Kolkata','Lucknow','Ludhiana','Mangalore','Mohali','Mumbai',
-#'Mysore','Nagpur','Nashik','New Delhi','Noida','Panchkula','Patna','Puducherry','Pune','Ranchi','Secunderabad',
-#'Surat','Vadodara','Varanasi','Vizag','Bandung','Bogor','Jakarta','Tangerang','Auckland','Wellington City',
-#'Birmingham','Edinburgh','London','Manchester','Doha','Cape Town','Inner City','Johannesburg','Pretoria',
-#'Randburg','Sandton','Colombo','Ankara']
-#)
-#locality = st.text_input('Locality')
-#st.text_input('Address')
-#st.caption('Locality speaks to the neighborhood')
 table_booking = st.radio('Has Table Booking?', ['No', 'Yes'])
 online_delivery = st.radio('Has Online Delivery?', ['No', 'Yes'])
-#cuisine = st.text_input('Cuisine', placeholder = "e.g. Dessert, Sunda, French, Italian etc")
+
 cuisine = st.selectbox('Cuisines', ['Japanese','Desserts','Seafood','Asian','Filipino','Indian','Sushi',
 'Korean','Mediterranean','Fast Food','Brazilian','Arabian','Bar Food','Grill','International','Cantonese',
 'Dim Sum','Western','Finger Food','British','Deli','Indonesian','North Indian','Mughlai','Biryani','Taiwanese',
@@ -183,7 +161,6 @@ scaled_data = scaler.transform(num_col_values)
 processed_data = np.hstack((encoded_data, scaled_data))
 prediction = model.predict(processed_data)[0]
 
-#st.write(encoded_data).shape
-#st.write(scaled_data).shape
+
 if pred:
     st.write(round(prediction,4))
