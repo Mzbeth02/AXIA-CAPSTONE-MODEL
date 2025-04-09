@@ -156,6 +156,10 @@ c_feature = ['City', 'Locality', 'Cuisines', 'Currency', 'Has Table booking',
 num_col_values = pd.DataFrame([num_col], columns=n_feature)
 cat_col_values = pd.DataFrame([cat_col], columns=c_feature)
 
+encoder = load_encoder()
+scaler = load_scaler()
+model = load_model()
+
 encoded_data = encoder.transform(cat_col_values).toarray()
 scaled_data = scaler.transform(num_col_values)
 processed_data = np.hstack((encoded_data, scaled_data))
