@@ -5,6 +5,20 @@ import numpy as np
 import joblib  
 import pandas as pd
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
+
+#loading models
+def load_scaler(): 
+ scaler = joblib.load('projectscaler.joblib')
+ return scaler
+
+def load_scaler(): 
+ encoder = joblib.load('projectencoder.joblib')
+ return scaler
+
+def load_model():
+ model = joblib.load('projectmodelcompress.joblib')
+ return model
+
 st.sidebar.title("Welcome to Jolly's Dining Rating Predictor" )
 #st.sidebar.info("Predict! Improve! Thrive!")
 st.sidebar.markdown("### **✅ Predict! Improve! Thrive!**")
