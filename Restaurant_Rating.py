@@ -175,10 +175,6 @@ n_feature = ['Restaurant ID', 'Average Cost for two', 'Price range', 'Votes']
 cat_col = (city, locality, cuisine, currency, table_booking, online_delivery)
 c_feature = ['City', 'Locality', 'Cuisines', 'Currency', 'Has Table booking',
        'Has Online delivery']
-scaler = joblib.load(r"C:\Users\Adedamola.Ayeni\OneDrive - Avon Healthcare Ltd\Documents\Adedamola Ayeni's Credentials\Python\Streamlit\projectscaler.joblib")
-encoder = joblib.load(r"C:\Users\Adedamola.Ayeni\OneDrive - Avon Healthcare Ltd\Documents\Adedamola Ayeni's Credentials\Python\Streamlit\projectencoder.joblib")
-model = joblib.load(r"C:\Users\Adedamola.Ayeni\OneDrive - Avon Healthcare Ltd\Documents\Adedamola Ayeni's Credentials\Python\Streamlit\projectmodel2.joblib")
-
 num_col_values = pd.DataFrame([num_col], columns=n_feature)
 cat_col_values = pd.DataFrame([cat_col], columns=c_feature)
 
