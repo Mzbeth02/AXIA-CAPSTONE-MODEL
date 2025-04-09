@@ -11,9 +11,9 @@ def load_scaler():
  scaler = joblib.load('projectscaler.joblib')
  return scaler
 
-def load_scaler(): 
+def load_encoder(): 
  encoder = joblib.load('projectencoder.joblib')
- return scaler
+ return encoder
 
 def load_model():
  model = joblib.load('projectmodelcompress.joblib')
