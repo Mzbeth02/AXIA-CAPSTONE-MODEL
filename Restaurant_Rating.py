@@ -22,7 +22,7 @@ def load_model():
 st.sidebar.title("Welcome to Jolly's Dining Rating Predictor" )
 #st.sidebar.info("Predict! Improve! Thrive!")
 st.sidebar.markdown("### **✅ Predict! Improve! Thrive!**")
-st.image('Restaurant.jpg', width = 1500)
+st.image('https://raw.githubusercontent.com/Mzbeth02/axia-capstone-model/main/Restaurant.jpg', width = 1500)
 st.title('🍴Dining Rating Predictor')
 st.info("This form is to be completed by restaurant owners to predict their cuisines' rating")
 
