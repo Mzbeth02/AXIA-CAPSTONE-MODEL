@@ -169,8 +169,6 @@ prediction = model.predict(processed_data)[0]
 
 if pred:
     st.write(round(prediction,4))
-    if pred:
-    st.write(round(prediction,4))
     if round(prediction,4) < 2.5:
         st.write('Poor 🙁')
     elif round(prediction,4) >= 2.5 and round(prediction,4) < 3.5:
