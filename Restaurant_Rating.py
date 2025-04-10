@@ -144,6 +144,7 @@ currency = st.selectbox('Currency',['Botswana Pula(P)','Brazilian Real(R$)','Dol
                          'Turkish Lira(TL)'])
 price = st.number_input("Price range", min_value=0, max_value=4, help="Enter number between 1 and 4")
 average_cost = st.number_input('Average cost for two', min_value=0)
+st.markdown("###### **Note: Votes lesser than 4 will result into 0 aggregate rating**")
 votes = st.number_input('Number of Votes', 0)
 pred = st.button('Predict Aggregate Rating')
 
@@ -168,3 +169,15 @@ prediction = model.predict(processed_data)[0]
 
 if pred:
     st.write(round(prediction,4))
+    if pred:
+    st.write(round(prediction,4))
+    if round(prediction,4) < 2.5:
+        st.write('Poor 🙁')
+    elif round(prediction,4) >= 2.5 and round(prediction,4) < 3.5:
+        st.write('Average 😐')
+    elif round(prediction,4) >= 3.5 and round(prediction,4) <4.0:
+        st.write('Good 👍🏼')      
+    elif round(prediction,4) >= 4.0 and round(prediction,4) <= 4.4:
+        st.write('Very Good 👏🏼')
+    else:
+        st.write('Excellent 💯')
