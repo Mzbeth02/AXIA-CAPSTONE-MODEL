@@ -108,8 +108,8 @@ currency = st.selectbox('Currency',['Botswana Pula(P)','Brazilian Real(R$)','Dol
                          'Turkish Lira(TL)'])
 price = st.number_input("Price range", min_value=0, max_value=4, help="Enter number between 1 and 4")
 average_cost = st.number_input('Average cost for two', min_value=0)
-st.markdown("###### **Note: Votes lesser than 4 will result into 0 aggregate rating**")
-votes = st.number_input('Number of Votes', 0)
+st.markdown("###### **Note: Number of reviews lesser than 4 will result into 0 aggregate rating**")
+votes = st.number_input('Number of Reviews', 0)
 pred = st.button('Predict Aggregate Rating')
 
 num_col = (average_cost, votes)
