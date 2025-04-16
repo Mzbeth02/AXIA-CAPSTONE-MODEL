@@ -112,7 +112,7 @@ st.markdown("###### **Note: Votes lesser than 4 will result into 0 aggregate rat
 votes = st.number_input('Number of Votes', 0)
 pred = st.button('Predict Aggregate Rating')
 
-num_col = (average_cost, price, votes)
+num_col = (average_cost, votes)
 n_feature = ['Average Cost for two', 'Votes']
 
 cat_col = (category, city, locality, cuisine, currency, table_booking, online_delivery)
