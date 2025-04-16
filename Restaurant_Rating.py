@@ -106,7 +106,6 @@ currency = st.selectbox('Currency',['Botswana Pula(P)','Brazilian Real(R$)','Dol
                          'Emirati Diram(AED)','Indian Rupees(Rs.)','Indonesian Rupiah(IDR)',
                          'NewZealand($)','Pounds(£)','Qatari Rial(QR)','Rand(R)','Sri Lankan Rupee(LKR)',
                          'Turkish Lira(TL)'])
-price = st.number_input("Price range", min_value=0, max_value=4, help="Enter number between 1 and 4")
 average_cost = st.number_input('Average cost for two', min_value=0)
 st.markdown("###### **Note: Number of reviews lesser than 4 will result into 0 aggregate rating**")
 votes = st.number_input('Number of Reviews', 0)
