@@ -26,6 +26,8 @@ st.image('https://raw.githubusercontent.com/Mzbeth02/axia-capstone-model/main/Re
 st.title('🍴Dining Rating Predictor')
 st.info("This form is to be completed by restaurant owners to predict their cuisines' rating")
 
+name = st.text_input('Restaurant Name')
+category = st.selectbox("Restaurant Category", ['Economy', 'Mid-range', 'Premium', 'Luxury'])
 location_df = pd.DataFrame(
     {
         'City': [
@@ -80,56 +82,18 @@ location_df = pd.DataFrame(
             'New Town', 'Old Town', 'Tollcross', 'Twelve Picardy Place, New Town',
             'Albemarle Street, Mayfair', 'Archer Street, Soho', 'Beak Street, Soho',
             'Bishopsgate, City Of London'
-        ],
-        'Restaurant ID': [
-            6317637, 6304287, 6300002, 6318506, 6300781, 6300010, 6314987, 6318433,
-            6310470, 6314605, 18287358, 18216944, 18334443, 18258757, 310491, 3370,
-            7580, 7249, 5565, 6258, 18429396, 179, 310281, 18207831, 18258778,
-            310802, 1192, 5904116, 5901782, 5902117, 5927248, 5905215, 5926979,
-            5916085, 5908749, 5915807, 5927402, 18483372, 18484349, 18496057,
-            18483389, 18483222, 18483085, 18484423, 18212135, 5701978, 5704168,
-            18277098, 5700052, 5702418, 5700386, 5704202, 5701052, 5704118, 5701548,
-            5703500, 18253896, 5702574, 202321, 206488, 18340881, 18233284,
-            18269368, 18254160, 6901051, 6900388, 18273002, 6901394, 6900843,
-            6900992, 6900069, 7600803, 7600217, 7602204, 7601106, 7601177, 7600921,
-            6118140, 6103683, 6114338, 6114829
-        ],
-        'Restaurant Name': [
-            'Le Petit Souffle','Izakaya Kikufuji','Heat - Edsa Shangri-La','Ooma','Buffet 101','Spiral - Sofitel Philippine Plaza Manila',
-              'Locavore','Silantro Fil-Mex','Guevarras','Sodam Korean Restaurant','Food Cloud','Burger.in',
-              'BarShala', 'Bella Italia', '4 on 44 Restaurant  Bar', 'BTW', 'Aggarwals Sweets Paradise',
-              'Alaturka', 'Mithapur', 'Aggarwal Sweet India','Juniper Bar - Andaz Delhi','McDonalds',
-              'Haldirams','Jux Pux - The Dreamers Cafe','34, Chowringhee Lane','Kanwarjis','Apni Rasoi',
-              'Jadore Chocolatier', 'Starbucks', 'Valonia','Draft Gastro Pub','Emirgan Sti','Leman Kltr',
-              'Dem Karaky','Ceviz Aac','Huqqa', 'Walters Coffee Roastery','Sky On 57','Cut By Wolfgang Puck',
-              'Restaurant Andre','Potato Head Folk','Jaan', 'Rhubarb Le Restaurant','Alfrank Cookies',
-              'Dennys', 'Pizza Di Rocco', 'Salt','Genghis Grill', 'Cho Gao - Crowne Plaza Abu Dhabi',
-              'Gazebo', 'Sangeetha Vegetarian Restaurant', 'Hot Palayok', 'Applebees',  'Tikka Tonight',
-              'Bait El Khetyar', 'Punjab Grill','Tamba','The Cheesecake Factory','The Farm','Maharaja Bhog',
-              'Barbeque Nation','Farzi Cafe','ABs Absolute Barbecues', 'Carnival By Tresind','The Plough',
-              'Lasan Restaurant','Damascena Coffee House', 'Jamjar','Chennai Dosa','Mughal E Azam','Bar Estilo',
-              'Loudons Cafe  Bakery','La Favorita','El Cartel', '10 To 10 In Delhi','Tuk Tuk Indian Street Food',
-              'Steak','Gymkhana','Bocca Di Lupo','Flat Iron', 'Duck  Waffle',
-]
+        ]
     }
 )
 
-# Select id
-id_options = location_df ['Restaurant ID'].unique()
-id = st.selectbox("Restaurant ID", id_options)
+# Select City
+city_options = location_df ['City'].unique()
+city = st.selectbox("City", city_options)
 
-# Step 2: Filter city and locality based on selected id
-filtered_name = location_df[location_df['Restaurant ID'] == id]['Restaurant Name'].unique()
-name = st.selectbox("Restaurant Name", filtered_name)
+# Step 2: Filter locality based on selected city
 
-
-filtered_city = location_df[location_df['Restaurant ID'] == id]['City'].unique()
-city = st.selectbox("City", filtered_city)
-
-
-filtered_locality = location_df[location_df['Restaurant ID'] == id]['Locality'].unique()
+filtered_locality = location_df[location_df['City'] == city]['Locality'].unique()
 locality = st.selectbox("Locality", filtered_locality)
-
 table_booking = st.radio('Has Table Booking?', ['No', 'Yes'])
 online_delivery = st.radio('Has Online Delivery?', ['No', 'Yes'])
 
@@ -148,11 +112,11 @@ st.markdown("###### **Note: Votes lesser than 4 will result into 0 aggregate rat
 votes = st.number_input('Number of Votes', 0)
 pred = st.button('Predict Aggregate Rating')
 
-num_col = (id, average_cost, price, votes)
-n_feature = ['Restaurant ID', 'Average Cost for two', 'Price range', 'Votes']
+num_col = (average_cost, price, votes)
+n_feature = ['Average Cost for two', 'Price range', 'Votes']
 
-cat_col = (city, locality, cuisine, currency, table_booking, online_delivery)
-c_feature = ['City', 'Locality', 'Cuisines', 'Currency', 'Has Table booking',
+cat_col = (category, city, locality, cuisine, currency, table_booking, online_delivery)
+c_feature = ['Restaurant Category','City', 'Locality', 'Cuisines', 'Currency', 'Has Table booking',
        'Has Online delivery']
 num_col_values = pd.DataFrame([num_col], columns=n_feature)
 cat_col_values = pd.DataFrame([cat_col], columns=c_feature)
