@@ -114,9 +114,9 @@ pred = st.button('Predict Aggregate Rating')
 num_col = (average_cost, votes)
 n_feature = ['Average Cost for two', 'Votes']
 
-cat_col = (category, city, locality, cuisine, currency, table_booking, online_delivery)
-c_feature = ['Restaurant Category', 'City', 'Locality', 'Cuisines', 'Currency', 'Has Table booking',
-       'Has Online delivery']
+cat_col = (city, locality, cuisine, currency, table_booking, online_delivery, category)
+c_feature = ['City', 'Locality', 'Cuisines', 'Currency', 'Has Table booking',
+       'Has Online delivery', 'Restaurant Category']
 
 num_col_values = pd.DataFrame([num_col], columns=n_feature)
 cat_col_values = pd.DataFrame([cat_col], columns=c_feature)
