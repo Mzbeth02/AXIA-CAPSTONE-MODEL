@@ -113,7 +113,7 @@ votes = st.number_input('Number of Votes', 0)
 pred = st.button('Predict Aggregate Rating')
 
 num_col = (average_cost, price, votes)
-n_feature = ['Average Cost for two', 'Price range', 'Votes']
+n_feature = ['Average Cost for two', 'Votes']
 
 cat_col = (category, city, locality, cuisine, currency, table_booking, online_delivery)
 c_feature = ['Restaurant Category','City', 'Locality', 'Cuisines', 'Currency', 'Has Table booking',
