@@ -130,16 +130,18 @@ scaled_data = scaler.transform(num_col_values)
 processed_data = np.hstack((encoded_data, scaled_data))
 prediction = model.predict(processed_data)[0]
 
-
 if pred:
-    st.write(round(prediction,4))
-    if round(prediction,4) < 2.5:
-        st.write('Poor 🙁')
-    elif round(prediction,4) >= 2.5 and round(prediction,4) < 3.5:
-        st.write('Average 😐')
-    elif round(prediction,4) >= 3.5 and round(prediction,4) <4.0:
-        st.write('Good 👍🏼')      
-    elif round(prediction,4) >= 4.0 and round(prediction,4) <= 4.4:
-        st.write('Very Good 👏🏼')
+    if not name or not category or not city or not locality or not table_booking or not online_delivery or not currency  or not cuisine:
+        st.error('Please fill in all required fields before submitting.')
     else:
-        st.write('Excellent 💯')
+        st.write(round(prediction,4))
+        if round(prediction,4) < 2.5:
+            st.write('Poor 🙁')
+        elif round(prediction,4) >= 2.5 and round(prediction,4) < 3.5:
+            st.write('Average 😐')
+        elif round(prediction,4) >= 3.5 and round(prediction,4) <4.0:
+            st.write('Good 👍🏼')      
+        elif round(prediction,4) >= 4.0 and round(prediction,4) <= 4.4:
+            st.write('Very Good 👏🏼')
+        else:
+            st.write('Excellent 💯')         
