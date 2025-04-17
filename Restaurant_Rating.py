@@ -26,8 +26,8 @@ st.image('https://raw.githubusercontent.com/Mzbeth02/axia-capstone-model/main/Re
 st.title('🍴Dining Rating Predictor')
 st.info("##### **This app is designed for restaurateurs to predict their aggregate rating**")
 
-name = st.text_input('##### Restaurant Name')
-category = st.selectbox("##### Restaurant Category", ['Economy', 'Mid-range', 'Premium', 'Luxury'])
+name = st.text_input('### Restaurant Name')
+category = st.selectbox("### Restaurant Category", ['Economy', 'Mid-range', 'Premium', 'Luxury'])
 location_df = pd.DataFrame(
     {
         'City': [
@@ -88,28 +88,28 @@ location_df = pd.DataFrame(
 
 # Select City
 city_options = location_df ['City'].unique()
-city = st.selectbox("##### City", city_options)
+city = st.selectbox("### City", city_options)
 
 # Step 2: Filter locality based on selected city
 
 filtered_locality = location_df[location_df['City'] == city]['Locality'].unique()
-locality = st.selectbox("##### Locality", filtered_locality)
-table_booking = st.radio('##### Has Table Booking?', ['No', 'Yes'])
-online_delivery = st.radio('Has Online Delivery?', ['No', 'Yes'])
+locality = st.selectbox("### Locality", filtered_locality)
+table_booking = st.radio('### Has Table Booking?', ['No', 'Yes'])
+online_delivery = st.radio('### Has Online Delivery?', ['No', 'Yes'])
 
-cuisine = st.selectbox('##### Cuisines', ['Japanese','Desserts','Seafood','Asian','Filipino','Indian','Sushi',
+cuisine = st.selectbox('### Cuisines', ['Japanese','Desserts','Seafood','Asian','Filipino','Indian','Sushi',
 'Korean','Mediterranean','Fast Food','Brazilian','Arabian','Bar Food','Grill','International','Cantonese',
 'Dim Sum','Western','Finger Food','British','Deli','Indonesian','North Indian','Mughlai','Biryani','Taiwanese',
 'Fish and Chips','Contemporary','Scottish','Curry','Patisserie','Kebab','Turkish Pizza','Sandwich','Steak'])
 
-currency = st.selectbox('##### Currency',['Botswana Pula(P)','Brazilian Real(R$)','Dollar($)',
+currency = st.selectbox('### Currency',['Botswana Pula(P)','Brazilian Real(R$)','Dollar($)',
                          'Emirati Diram(AED)','Indian Rupees(Rs.)','Indonesian Rupiah(IDR)',
                          'NewZealand($)','Pounds(£)','Qatari Rial(QR)','Rand(R)','Sri Lankan Rupee(LKR)',
                          'Turkish Lira(TL)'])
-average_cost = st.number_input('##### Average cost for two', min_value=0, max_value=800000, help= "Average cost for 2 ranges from 0 to 800,000")
+average_cost = st.number_input('### Average cost for two', min_value=0, max_value=800000, help= "Average cost for 2 ranges from 0 to 800,000")
 st.markdown("###### **Note: Number of reviews lesser than 4 will result into 0 aggregate rating**")
-votes = st.number_input('##### Number of Reviews', 0)
-pred = st.button('##### Predict Aggregate Rating')
+votes = st.number_input('### Number of Reviews', 0)
+pred = st.button('### Predict Aggregate Rating')
 
 num_col = (average_cost, votes)
 n_feature = ['Average Cost for two', 'Votes']
