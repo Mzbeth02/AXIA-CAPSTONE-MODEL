@@ -24,7 +24,7 @@ st.sidebar.title("Welcome to Jolly's Dining Rating Predictor" )
 st.sidebar.markdown("### **✅ Predict! Improve! Thrive!**")
 st.image('https://raw.githubusercontent.com/Mzbeth02/axia-capstone-model/main/Restaurant.jpg', width = 1500)
 st.title('🍴Dining Rating Predictor')
-st.info("#### **This app is designed for restaurateurs to predict their aggregate rating**")
+st.info("##### **This app is designed for restaurateurs to predict their aggregate rating**")
 
 name = st.text_input('Restaurant Name')
 category = st.selectbox("Restaurant Category", ['Economy', 'Mid-range', 'Premium', 'Luxury'])
