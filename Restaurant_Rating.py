@@ -24,7 +24,7 @@ st.sidebar.title("Welcome to Jolly's Dining Rating Predictor" )
 st.sidebar.markdown("### **✅ Predict! Improve! Thrive!**")
 st.image('https://raw.githubusercontent.com/Mzbeth02/axia-capstone-model/main/Restaurant.jpg', width = 1500)
 st.title('🍴Dining Rating Predictor')
-st.info("##### **This app is designed for restaurateurs to predict their aggregate rating**")
+st.info("##### **This app is designed for restaurateurs to predict their overall rating**")
 
 name = st.text_input('Restaurant Name')
 category = st.selectbox("Restaurant Category", ['Economy', 'Mid-range', 'Premium', 'Luxury'])
@@ -109,7 +109,7 @@ currency = st.selectbox('Currency',['Botswana Pula(P)','Brazilian Real(R$)','Dol
 average_cost = st.number_input('Average cost for two', min_value=0, max_value=800000, help= "Average cost for 2 ranges from 0 to 800,000")
 st.markdown("###### **Note: Number of ratings lesser than 4 will result into 0 aggregate rating**")
 votes = st.number_input('Number of Ratings', min_value=0, max_value=10934, help= 'Number of rating ranges from 0 to 10,934')
-pred = st.button('Predict Aggregate Rating')
+pred = st.button('Predict Rating')
 
 num_col = (average_cost, votes)
 n_feature = ['Average Cost for two', 'Votes']
