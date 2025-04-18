@@ -19,7 +19,7 @@ def load_model():
  model = joblib.load('projectmodelcompress.joblib')
  return model
 
-st.sidebar.title("Welcome to Jolly's Dining Rating Predictor" )
+st.sidebar.title("Welcome to DeeDam's Dining Rating Predictor" )
 #st.sidebar.info("Predict! Improve! Thrive!")
 st.sidebar.markdown("### **✅ Predict! Improve! Thrive!**")
 st.image('https://raw.githubusercontent.com/Mzbeth02/axia-capstone-model/main/Restaurant.jpg', width = 1500)
